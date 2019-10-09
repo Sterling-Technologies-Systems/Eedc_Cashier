@@ -54,7 +54,6 @@ HomeStack.path = '';
 
 export const ProcessStack = createStackNavigator(
   {
-
      Scan: ScanBill,
      SeePayment: ViewPayment,
      Search: SearchScreen
@@ -62,7 +61,7 @@ export const ProcessStack = createStackNavigator(
   {
     headerMode: 'none',
     navigationOptions: {
-      headerVisible: true,
+      headerVisible: false,
     }
   },
   config

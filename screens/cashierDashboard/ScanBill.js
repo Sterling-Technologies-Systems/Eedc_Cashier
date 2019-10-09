@@ -5,13 +5,24 @@ import React, { Component } from 'react';
 import  {StyleSheet, TouchableOpacity} from 'react-native'
 import { Container, Header, Content, Form, Item, View, Left, Right, Title, Icon, Body } from 'native-base';
 import {Input,Layout, Text, Button} from  'react-native-ui-kitten'
+import { Font, AppLoading } from "expo";
+
 
 class ScanBill extends Component {
 
   state = {
     inputValue: '',
     shown: true,
-  };
+        fontLoaded: false,
+    }
+
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+       Roboto: require("../../assets/fonts/Roboto/Roboto-Black.ttf"),
+           Roboto_medium: require("../../assets/fonts/Roboto/Roboto-Medium.ttf")
+    });
+    this.setState({ fontLoaded: true });
+  }
 
 
   	toggle = () =>{
@@ -32,10 +43,27 @@ class ScanBill extends Component {
   
 
     render() {
+         if (!this.state.fontLoaded) {
+           return <AppLoading / > ;
+       }
         
         return (
              <Container>
-               <Header/>
+              <Header>
+          <Left>
+            <Button hasText transparent>
+              <Text>Back</Text>
+            </Button>
+          </Left>
+          <Body>
+            <Title>Scan Bill</Title>
+          </Body>
+          <Right>
+            <Button hasText transparent>
+              <Text>Cancel</Text>
+            </Button>
+          </Right>
+        </Header>
 
 
             <View style={styles.p_3}>
