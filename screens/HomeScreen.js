@@ -35,14 +35,7 @@ render(){
          <LinearGradient
           colors={['#4c669f', '#3b5998', '#192f6a']}
           style={styles.linearTop}>
-          <Text
-            style={{
-              backgroundColor: 'transparent',
-              fontSize: 35,
-              color: '#fff',
-            }}>
-            Cashier App
-          </Text>
+           <Image style={styles.imagesTop} source={require('../assets/images/landingImg.png')} />
         </LinearGradient>
         <Content style={{paddingTop: 20}}>
 
@@ -143,6 +136,15 @@ const styles = StyleSheet.create({
     marginRight: -17,
     borderRadius: 10
   },
+
+  imagesTop: {
+    width: 175,
+    height: 210,
+    marginTop: -10,
+    marginLeft: -15,
+    marginRight: -17,
+    borderRadius: 10
+  },
   card: {
     width: 160,
     margin: 20,
@@ -166,7 +168,7 @@ const styles = StyleSheet.create({
   linearTop: {
    
     padding: 15,
-    height: 200,
+    height: 220,
     alignItems: "center",
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,

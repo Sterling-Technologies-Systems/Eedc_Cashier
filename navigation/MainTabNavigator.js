@@ -62,7 +62,7 @@ export const ProcessStack = createStackNavigator(
   {
     headerMode: 'none',
     navigationOptions: {
-      headerVisible: false,
+      headerVisible: true,
     }
   },
   config

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 
 import  {StyleSheet, TouchableOpacity} from 'react-native'
-import { Container, Header, Content, Form, Item, View } from 'native-base';
+import { Container, Header, Content, Form, Item, View, Left, Right, Title, Icon, Body } from 'native-base';
 import {Input,Layout, Text, Button} from  'react-native-ui-kitten'
 
 class ScanBill extends Component {
@@ -35,7 +35,9 @@ class ScanBill extends Component {
         
         return (
              <Container>
-               <Header />
+               <Header/>
+
+
             <View style={styles.p_3}>
                  <Input style={styles.input}
                   label='Enter Amount'
