@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 
 import  {StyleSheet, TouchableOpacity} from 'react-native'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import { Container, Header, Content, Form, Item, View, Left, Right, Title, Icon, Body } from 'native-base';
 import {Input,Layout, Text, Button} from  'react-native-ui-kitten'
 import { Font, AppLoading } from "expo";
@@ -62,6 +64,13 @@ class ScanBill extends Component {
             return <Text > No access to camera </Text>;
         } else {
         return (
+
+             <KeyboardAwareScrollView
+       style={{ backgroundColor: '#4c69a5' }}
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.keyboard}
+      scrollEnabled={false}
+    >
              <Container>
 
               <Header>
@@ -114,7 +123,7 @@ class ScanBill extends Component {
 
 
 
-            <View style={styles.p_3}>
+            <View style={{display: 'none'}}>
                  <Input style={styles.input}
                   label='Enter Amount'
                     value={this.state.inputValue}
@@ -127,14 +136,18 @@ class ScanBill extends Component {
                     Send
                 </Button>
             </View>
-               </Container>
+
+                </Container>
+             </KeyboardAwareScrollView>
+           
         );
     }
 }
 }
 
 const styles = StyleSheet.create({
-   p_3: {padding: 20, marginTop: 40},
+    keyboard: {fontWeight: '100'},
+   p_3: {padding: 20, marginTop: 20},
   forgotPassword: {alignItems: 'flex-end', alignSelf: 'flex-end', color: 'dodgerblue'},
   button: {width: 100, borderRadius: 25, marginTop: 10, marginBottom: 25},
   input: {borderRadius: 25, marginBottom: 10},

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import { Container, Header, Item, Input, Icon, Button, Text, Left } from 'native-base';
+import { Container, Header, Item, Input, Icon, Button, Text, Card, CardItem, Body, Right , Left, View  } from "native-base";
+
+import { List, ListItem} from 'react-native-ui-kitten';
+
 import { Font, AppLoading } from "expo";
+
 
 
 export default class SearchScreen extends Component {
@@ -16,7 +20,14 @@ export default class SearchScreen extends Component {
     this.setState({ fontLoaded: true });
   }
 
+  onPress = () => {
+     console.warn('alright sending')
+  };
+
+
   render() {
+     
+
        if (!this.state.fontLoaded) {
            return <AppLoading / > ;
        }
@@ -34,6 +45,29 @@ export default class SearchScreen extends Component {
                 <Text>Search</Text>
             </Button>
             </Header>
+
+
+              <Card>
+            <CardItem header bordered>
+              <Text>Customer Details</Text>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+              <Text>Name: </Text>
+              <Text>Amount:</Text>
+              <Text>Vat:</Text>
+              <Text>Arrears:</Text>
+                
+              </Body>
+            </CardItem>
+            <CardItem footer bordered>
+              <Button onPress={onPress}>PAY</Button>
+
+               <Button onPress={onPress}>Cancel</Button>
+            </CardItem>
+          </Card>
+
+
       </Container>
     );
   }
