@@ -7,9 +7,10 @@ import { Container, Header, Content, Form, Item, View, Left, Right, Title, Icon,
 import {Input,Layout, Text, Button} from  'react-native-ui-kitten'
 import { Font, AppLoading } from "expo";
 
+import * as Permissions from 'expo-permissions';
+import { Camera } from 'expo-camera';
 
 class ScanBill extends Component {
-
   state = {
     inputValue: '',
     shown: true,
@@ -22,6 +23,12 @@ class ScanBill extends Component {
            Roboto_medium: require("../../assets/fonts/Roboto/Roboto-Medium.ttf")
     });
     this.setState({ fontLoaded: true });
+  }
+
+
+  async componentDidMount() {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA);
+    this.setState({ hasCameraPermission: status === 'granted' });
   }
 
 
@@ -40,15 +47,23 @@ class ScanBill extends Component {
     this.setState({ inputValue });
   };
 
-  
+
 
     render() {
          if (!this.state.fontLoaded) {
            return <AppLoading / > ;
        }
-        
+        const {
+            hasCameraPermission
+        } = this.state;
+        if (hasCameraPermission === null) {
+            return <View / > ;
+        } else if (hasCameraPermission === false) {
+            return <Text > No access to camera </Text>;
+        } else {
         return (
              <Container>
+
               <Header>
           <Left>
             <Button hasText transparent>
@@ -61,9 +76,42 @@ class ScanBill extends Component {
           <Right>
             <Button hasText transparent>
               <Text>Cancel</Text>
-            </Button>
+            </Button>       
           </Right>
         </Header>
+
+        
+
+            <View style={{ flex: 1 }}>
+          <Camera style={{ flex: 1 }} type={this.state.type}>
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: 'transparent',
+                flexDirection: 'row',
+              }}>
+              <TouchableOpacity
+                style={{
+                  flex: 0.1,
+                  alignSelf: 'flex-end',
+                  alignItems: 'center',
+                }}
+                onPress={() => {
+                  this.setState({
+                    type:
+                      this.state.type === Camera.Constants.Type.back
+                        ? Camera.Constants.Type.front
+                        : Camera.Constants.Type.back,
+                  });
+                }}>
+                <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
+              </TouchableOpacity>
+            </View>
+          </Camera>
+        </View>
+
+
+
 
 
             <View style={styles.p_3}>
@@ -82,6 +130,7 @@ class ScanBill extends Component {
                </Container>
         );
     }
+}
 }
 
 const styles = StyleSheet.create({

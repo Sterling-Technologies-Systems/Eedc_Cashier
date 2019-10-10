@@ -24,11 +24,7 @@ export default class SearchScreen extends Component {
     return (
       <Container>
             <Header searchBar rounded>
-             <Left>
-            <Button hasText transparent>
-              <Text>Back</Text>
-            </Button>
-          </Left>
+            
             <Item>
                 <Icon name="ios-search"/>
                 <Input placeholder="Search"/>
