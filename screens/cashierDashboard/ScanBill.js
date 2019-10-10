@@ -8,9 +8,12 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { Container, Header, Content, Form, Item, View, Left, Right, Title, Icon, Body } from 'native-base';
 import {Input,Layout, Text, Button} from  'react-native-ui-kitten'
 import { Font, AppLoading } from "expo";
-
+import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 import { Camera } from 'expo-camera';
+
+
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
 class ScanBill extends Component {
   state = {
@@ -55,18 +58,18 @@ class ScanBill extends Component {
          if (!this.state.fontLoaded) {
            return <AppLoading / > ;
        }
-        const {
-            hasCameraPermission
-        } = this.state;
-        if (hasCameraPermission === null) {
-            return <View / > ;
-        } else if (hasCameraPermission === false) {
-            return <Text > No access to camera </Text>;
-        } else {
+       const { hasCameraPermission, scanned } = this.state;
+
+    if (hasCameraPermission === null) {
+      return <Text>Requesting for camera permission</Text>;
+    }
+    if (hasCameraPermission === false) {
+      return <Text>No access to camera</Text>;
+    }
         return (
 
              <KeyboardAwareScrollView
-       style={{ backgroundColor: '#4c69a5' }}
+       style={{ backgroundColor: '#f2f2f2' }}
       resetScrollToCoords={{ x: 0, y: 0 }}
       contentContainerStyle={styles.keyboard}
       scrollEnabled={false}
@@ -75,8 +78,8 @@ class ScanBill extends Component {
 
               <Header>
           <Left>
-            <Button hasText transparent>
-              <Text>Back</Text>
+            <Button hasText transparent onPress={() => this.props.navigation.push('Home')}>
+                 <Icon name="arrow-back" />
             </Button>
           </Left>
           <Body>
@@ -91,36 +94,21 @@ class ScanBill extends Component {
 
         
 
-            <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }} type={this.state.type}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: 'transparent',
-                flexDirection: 'row',
-              }}>
-              <TouchableOpacity
-                style={{
-                  flex: 0.1,
-                  alignSelf: 'flex-end',
-                  alignItems: 'center',
-                }}
-                onPress={() => {
-                  this.setState({
-                    type:
-                      this.state.type === Camera.Constants.Type.back
-                        ? Camera.Constants.Type.front
-                        : Camera.Constants.Type.back,
-                  });
-                }}>
-                <Text style={{ fontSize: 18, marginBottom: 10, color: 'white' }}> Flip </Text>
-              </TouchableOpacity>
-            </View>
-          </Camera>
-        </View>
+        <View
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+        }}>
+        <BarCodeScanner
+          onBarCodeScanned={scanned ? undefined : this.handleBarCodeScanned}
+          style={StyleSheet.absoluteFillObject}
+        />
 
-
-
+        {scanned && (
+          <Button title={'Tap to Scan Again'} onPress={() => this.setState({ scanned: false })} />
+        )}
+      </View>
 
 
             <View style={{display: 'none'}}>
@@ -142,7 +130,13 @@ class ScanBill extends Component {
            
         );
     }
-}
+
+
+handleBarCodeScanned = ({ type, data }) => {
+    this.setState({ scanned: true });
+    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+  };
+
 }
 
 const styles = StyleSheet.create({

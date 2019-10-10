@@ -38,6 +38,9 @@ export default class ViewPayment extends Component {
                 />
             );
 
+             const Accessory = (style) => (
+    <Button style={style}>BUTTON</Button>
+  );
 
     return (
       <Container>
@@ -64,15 +67,20 @@ export default class ViewPayment extends Component {
             </CardItem>
             <CardItem bordered>
               <Body>
-                  <List
-      data={data}
-      renderItem={renderItem}
-    />
+             
+
+                <ListItem
+    style={styles.listItem}
+    titleStyle={styles.listItemTitle}
+    descriptionStyle={styles.listItemDescription}
+    accessory={Accessory}
+    title='5000'
+    description='Description of payment'
+  />
+                
               </Body>
             </CardItem>
-            <CardItem footer bordered>
-              <Text>see more</Text>
-            </CardItem>
+         
           </Card>
 
         </Content>
@@ -82,5 +90,8 @@ export default class ViewPayment extends Component {
 }
 
 const styles = StyleSheet.create({ 
-    date: {fontSize: 7}
+    date: {fontSize: 7},
+     listItem: { borderRadius: 8 },
+  listItemTitle: { color: 'black' },
+  listItemDescription: { color: 'gray' },
 })

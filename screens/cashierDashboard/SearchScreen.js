@@ -34,7 +34,7 @@ export default class SearchScreen extends Component {
 
     return (
       <Container>
-            <Header searchBar rounded>
+            <Header searchBar rounded style={{padding: 15}}>
             
             <Item>
                 <Icon name="ios-search"/>
@@ -57,13 +57,14 @@ export default class SearchScreen extends Component {
               <Text>Amount:</Text>
               <Text>Vat:</Text>
               <Text>Arrears:</Text>
+              <Text style={styles.BigAmount}>Total: 5,080</Text>
                 
               </Body>
             </CardItem>
             <CardItem footer bordered>
-              <Button onPress={onPress}>PAY</Button>
+              <Button primary onPress={this.onPress}><Text>Pay</Text></Button>
 
-               <Button onPress={onPress}>Cancel</Button>
+               <Button danger onPress={this.onPress}><Text>Cancel</Text></Button>
             </CardItem>
           </Card>
 
@@ -71,4 +72,8 @@ export default class SearchScreen extends Component {
       </Container>
     );
   }
+}
+
+const styles = {
+    BigAmount: {fontSize: 18,}
 }

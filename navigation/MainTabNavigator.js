@@ -84,6 +84,7 @@ ProcessStack.navigationOptions = {
 ProcessStack.path = '';
 
 
+
 export const AuthStack = createStackNavigator(
   {
      Login: LoginScreen,
@@ -132,6 +133,7 @@ SettingsStack.path = '';
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   SettingsStack,
+  ProcessStack
 });
 
 tabNavigator.path = '';
