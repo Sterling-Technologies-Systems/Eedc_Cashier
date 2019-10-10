@@ -14,6 +14,7 @@ import ViewPayment from '../screens/cashierDashboard/ViewPayment'
 import ScanBill from '../screens/cashierDashboard/ScanBill'
 import DashboardScreen from '../screens/cashierDashboard/dashboard'
 import SearchScreen from '../screens/cashierDashboard/SearchScreen'
+import AuthorizeScreen from '../screens/cashierDashboard/AuthorizeScreen'
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -54,6 +55,7 @@ HomeStack.path = '';
 
 export const ProcessStack = createStackNavigator(
   {
+    Authorize: AuthorizeScreen,
      Scan: ScanBill,
      SeePayment: ViewPayment,
      Search: SearchScreen

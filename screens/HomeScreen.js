@@ -97,7 +97,7 @@ render(){
           </Col>
 
            <Col>
-           <TouchableOpacity onPress={this._onPressButton}>
+           <TouchableOpacity onPress={() => this.props.navigation.navigate('Authorize')}>
               <Card style={styles.card}>
             <CardItem style={{padding: 0, margin: 0}}>
               <Body style={{padding: 0, margin: 0}}>

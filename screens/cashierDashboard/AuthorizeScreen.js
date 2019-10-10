@@ -1,39 +1,22 @@
-import React, { Component } from 'react';
-import { Container, Header, Item, Input, Icon, Button, Text, Card, CardItem, Body, Right , Left, View  } from "native-base";
 
+import React, { Component } from 'react'
+import { Container, Header, Item, Input, Icon, Button, Text, Card, CardItem, Body, Right , Left, View  } from "native-base";
+import  {StyleSheet, TouchableOpacity} from 'react-native'
 import { List, ListItem} from 'react-native-ui-kitten';
 
 import { Font, AppLoading } from "expo";
 
 
+export default class AuthorizeScreen extends Component {
 
-export default class SearchScreen extends Component {
-    state = {
-        fontLoaded: false,
-    }
-
-  async componentWillMount() {
-    await Expo.Font.loadAsync({
-       Roboto: require("../../assets/fonts/Roboto/Roboto-Black.ttf"),
-           Roboto_medium: require("../../assets/fonts/Roboto/Roboto-Medium.ttf")
-    });
-    this.setState({ fontLoaded: true });
-  }
-
-  onPress = () => {
-     console.warn('alright sending')
-  };
-
+onItemPress = (index) => {
+    console.log('you haf click')
+};
 
   render() {
-     
-
-       if (!this.state.fontLoaded) {
-           return <AppLoading / > ;
-       }
-
     return (
-      <Container>
+      <div>
+           <Container>
             <Header searchBar rounded>
             
             <Item>
@@ -62,7 +45,7 @@ export default class SearchScreen extends Component {
               </Body>
             </CardItem>
             <CardItem footer bordered>
-              <Button primary onPress={this.onPress}><Text>Pay</Text></Button>
+              <Button success onPress={this.onPress}><Text>Authorize Payment</Text></Button>
 
                <Button danger onPress={this.onPress}><Text>Cancel</Text></Button>
             </CardItem>
@@ -70,10 +53,16 @@ export default class SearchScreen extends Component {
 
 
       </Container>
-    );
+   
+      </div>
+    )
   }
 }
 
-const styles = StyleSheet.create ({
-    BigAmount: {fontSize: 18,}
+
+const styles = StyleSheet.create
+({
+    BigAmount: {
+        fontSize: 18,
+    }
 })
