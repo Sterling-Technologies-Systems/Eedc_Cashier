@@ -60,9 +60,9 @@ onItemPress = (index) => {
 }
 
 
-const styles = StyleSheet.create
-({
+const styles =
+{
     BigAmount: {
         fontSize: 18,
     }
-})
+}
