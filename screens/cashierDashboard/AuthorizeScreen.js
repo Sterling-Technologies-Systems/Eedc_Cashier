@@ -8,14 +8,30 @@ import { Font, AppLoading } from "expo";
 
 
 export default class AuthorizeScreen extends Component {
+  state = {
+      fontLoaded: false,
+  }
+
+  async componentWillMount() {
+      await Expo.Font.loadAsync({
+          Roboto: require("../../assets/fonts/Roboto/Roboto-Black.ttf"),
+          Roboto_medium: require("../../assets/fonts/Roboto/Roboto-Medium.ttf")
+      });
+      this.setState({
+          fontLoaded: true
+      });
+  }
 
 onItemPress = (index) => {
     console.log('you haf click')
 };
 
   render() {
+        if (!this.state.fontLoaded) {
+            return <AppLoading / > ;
+        }
     return (
-      <div>
+      <>
            <Container>
             <Header searchBar rounded>
             
@@ -40,7 +56,7 @@ onItemPress = (index) => {
               <Text>Amount:</Text>
               <Text>Vat:</Text>
               <Text>Arrears:</Text>
-              <Text style={styles.BigAmount}>Total: 5,080</Text>
+              <Text>Total: 5,080</Text>
                 
               </Body>
             </CardItem>
@@ -54,15 +70,9 @@ onItemPress = (index) => {
 
       </Container>
    
-      </div>
+      </>
     )
   }
 }
 
 
-const styles =
-{
-    BigAmount: {
-        fontSize: 18,
-    }
-}

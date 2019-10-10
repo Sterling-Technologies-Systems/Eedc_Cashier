@@ -3,6 +3,8 @@ import { Container, Header, Item, Input, Icon, Button, Text, Card, CardItem, Bod
 
 import { List, ListItem} from 'react-native-ui-kitten';
 
+
+import  {StyleSheet, TouchableOpacity} from 'react-native'
 import { Font, AppLoading } from "expo";
 
 
