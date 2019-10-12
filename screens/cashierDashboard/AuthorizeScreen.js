@@ -83,7 +83,13 @@ onItemPress = (index) => {
             </Row>
         </LinearGradient>
 
-
+      <Card>
+            <CardItem header bordered>
+              <Text>View Payments</Text>
+            </CardItem>
+            <CardItem bordered>
+              <Body>
+             
         <List>
             <ListItem itemDivider>
               <Text>Analysis By Customer Type</Text>
@@ -101,6 +107,10 @@ onItemPress = (index) => {
               <Text>Bradley Horowitz</Text>
             </ListItem>
           </List>
+
+          </Body>
+          </CardItem>
+          </Card>
 
 
       </Container>

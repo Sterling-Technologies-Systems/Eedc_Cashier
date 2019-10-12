@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon, Badge, Right , Left, View  } from "native-base";
+import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon, Badge, Right , Left, View, Thumbnail  } from "native-base";
 import { Font, AppLoading } from "expo";
 import { Col, Row, Grid} from 'react-native-easy-grid';
 import { List, ListItem, Input, Layout, Button } from 'react-native-ui-kitten';

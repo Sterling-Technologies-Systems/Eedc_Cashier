@@ -5,7 +5,7 @@ import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnai
 class NotificationScreen extends Component {
   render() {
     return (
-      <div>
+
           <Container>
             <Header />
             <Content>
@@ -22,7 +22,7 @@ class NotificationScreen extends Component {
               </List>
             </Content>
           </Container>
-      </div>
+
     );
   }
 }
