@@ -2,6 +2,7 @@ import * as WebBrowser from 'expo-web-browser';
 import { Container, Header, Content, Card, Icon, CardItem, Body } from 'native-base';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Avatar } from 'react-native-ui-kitten';
 
 import React,{Component} from 'react';
 import {
@@ -32,11 +33,44 @@ render(){
     return (
        <Container style={styles.container}>
         <Header />
+        
          <LinearGradient
           colors={['#4c669f', '#3b5998', '#192f6a']}
           style={styles.linearTop}>
-           <Image style={styles.imagesTop} source={require('../assets/images/landingImg.png')} />
-        </LinearGradient>
+<Row>
+<Col>
+      <Text><Icon style={styles.Icon} type="FontAwesome" name="money" /></Text>
+</Col>
+<Col style={styles.Right}>
+      <Text><Icon style={styles.Icon}  type="FontAwesome" name="user" /> 
+      <Icon style={styles.Icon}  type="FontAwesome" name="power-off" /></Text>
+</Col>
+</Row>
+
+               <Avatar
+    source={require('../assets/images/robot-dev.png')}
+    size='large'
+    shape='rounded'
+  /> 
+
+    <Text style={styles.BigText}>Name</Text>
+        <Text style={styles.SmallText}>Account Type</Text>
+
+
+        <Row>
+            <Col>
+                <Text style={styles.BigText}>9,000,000</Text>
+                <Text style={styles.SmallText}>Postpaid</Text>
+            </Col>
+
+            <Col>
+                <Text style={styles.BigText}>9,000,000</Text>
+                <Text style={styles.SmallText}>Prepaid</Text>
+            </Col>
+        </Row>
+         </LinearGradient>
+
+
         <Content style={{paddingTop: 20}}>
 
           
@@ -49,7 +83,7 @@ render(){
             <CardItem style={{marginBottom: 0}}>
               <Body>
              <Image style={styles.images} source={require('../assets/images/eedcReceipt.png')} />
-        
+      
                 <Text style={styles.cardText}>
                    Scan Bill
                 </Text>
@@ -125,6 +159,25 @@ HomeScreen.navigationOptions = {
 
 
 const styles = StyleSheet.create({
+  Icon:{
+    color: '#fff',
+    fontSize: 14,
+    marginRight: 10
+  },
+  Right: {
+ alignItems: 'flex-end'
+  },
+  textWhite: {
+    color: "#fff"
+  },
+  BigText:{
+    color: "#fff",
+    fontSize: 15
+  },
+   SmallText: {
+     color: "#fff",
+     fontSize:8
+   },
   container: {
     backgroundColor: "#f2f2f2"
   },

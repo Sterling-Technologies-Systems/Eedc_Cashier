@@ -2,7 +2,10 @@
 import React, { Component } from "react";
 import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon, Right , Left, View  } from "native-base";
 import { Font, AppLoading } from "expo";
+import { Col, Row, Grid } from 'react-native-easy-grid';
 import { List, ListItem } from 'react-native-ui-kitten';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Avatar } from 'react-native-ui-kitten';
 
 import  {StyleSheet, TouchableOpacity} from 'react-native'
 
@@ -59,6 +62,45 @@ export default class ViewPayment extends Component {
             </Button>
           </Right>
         </Header>
+
+               <LinearGradient
+          colors={['#4c669f', '#3b5998', '#192f6a']}
+          style={styles.linearTop}>
+<Row>
+<Col>
+      <Text><Icon style={styles.Icon} type="FontAwesome" name="money" /></Text>
+</Col>
+<Col style={styles.Right}>
+      <Text><Icon style={styles.Icon}  type="FontAwesome" name="user" /> 
+      <Icon style={styles.Icon}  type="FontAwesome" name="power-off" /></Text>
+</Col>
+</Row>
+
+               <Avatar
+    source={require('../../assets/images/robot-dev.png')}
+    size='large'
+    shape='rounded'
+  /> 
+
+    <Text style={styles.BigText}>Name</Text>
+        <Text style={styles.SmallText}>Account Type</Text>
+
+
+        <Row>
+            <Col>
+                <Text style={styles.BigText}>9,000,000</Text>
+                <Text style={styles.SmallText}>Postpaid</Text>
+            </Col>
+
+            <Col>
+                <Text style={styles.BigText}>9,000,000</Text>
+                <Text style={styles.SmallText}>Prepaid</Text>
+            </Col>
+        </Row>
+         </LinearGradient>
+
+
+
         <Content padder>
 
           <Card>
@@ -89,7 +131,44 @@ export default class ViewPayment extends Component {
   }
 }
 
-const styles = StyleSheet.create({ 
+const styles = StyleSheet.create({
+            Icon: {
+                color: '#fff',
+                fontSize: 14,
+                marginRight: 10,
+                marginLeft: 10
+            },
+            Right: {
+                alignItems: 'flex-end'
+            },
+            textWhite: {
+                color: "#fff"
+            },
+            BigText: {
+                color: "#fff",
+                fontSize: 15
+            },
+            SmallText: {
+                color: "#fff",
+                fontSize: 8
+            },
+            linearTop: {
+   
+    padding: 15,
+    height: 220,
+    alignItems: "flex-start",
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
+    shadowColor: '#000',
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5
+    
+  },
+  icon: {
+    alignSelf: "center",
+    alignContent: "center"
+  },
     date: {fontSize: 7},
      listItem: { borderRadius: 8 },
   listItemTitle: { color: 'black' },
