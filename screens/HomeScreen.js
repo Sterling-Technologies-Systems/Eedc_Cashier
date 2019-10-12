@@ -137,7 +137,7 @@ render(){
               <Body style={{padding: 0, margin: 0}}>
                 <Image style={styles.images} source={require('../assets/images/eedcpay.png')} />
                 <Text style={styles.cardText}> 
-                   Authorize Payments
+                   Day end Payments
                 </Text>
               </Body>
             </CardItem>

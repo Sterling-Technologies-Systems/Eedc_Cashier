@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
-import { Container, Header, Item, Input, Icon, Button, Text, Card, CardItem, Body, Right , Left, View, 
+import { Container, Header, Item, Input, Icon, Button,  Badge, Text, Card, CardItem, Body, Right , Left, View, 
     Content, List, ListItem } from "native-base";
+    import { Col, Row, Grid} from 'react-native-easy-grid';
 import  {StyleSheet, TouchableOpacity} from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import { Avatar } from 'react-native-ui-kitten';
@@ -35,17 +36,7 @@ onItemPress = (index) => {
     return (
       <>
            <Container>
-            <Header searchBar rounded>
-            
-            <Item>
-                <Icon name="ios-search"/>
-                <Input placeholder="Search"/>
-                <Icon name="ios-paper"/>
-            </Item>
-            <Button transparent>
-                <Text>Search</Text>
-            </Button>
-            </Header>
+          
 
              <LinearGradient
             colors={['#4c669f', '#3b5998', '#192f6a']}
