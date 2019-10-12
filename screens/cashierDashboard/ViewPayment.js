@@ -1,15 +1,15 @@
 
 import React, { Component } from "react";
-import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon, Right , Left, View  } from "native-base";
+import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon, Badge, Right , Left, View  } from "native-base";
 import { Font, AppLoading } from "expo";
-import { Col, Row, Grid } from 'react-native-easy-grid';
-import { List, ListItem } from 'react-native-ui-kitten';
+import { Col, Row, Grid} from 'react-native-easy-grid';
+import { List, ListItem, Input, Layout, Button } from 'react-native-ui-kitten';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Avatar } from 'react-native-ui-kitten';
 
 import  {StyleSheet, TouchableOpacity} from 'react-native'
 
-import {Input,Layout, Button} from  'react-native-ui-kitten'
+
 export default class ViewPayment extends Component {
      state = {
         fontLoaded: false,
@@ -42,8 +42,11 @@ export default class ViewPayment extends Component {
             );
 
              const Accessory = (style) => (
-    <Button style={style}>BUTTON</Button>
-  );
+                    <>
+                        <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
+                        <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
+                    </>
+                );
 
     return (
       <Container>
@@ -63,41 +66,50 @@ export default class ViewPayment extends Component {
           </Right>
         </Header>
 
-               <LinearGradient
-          colors={['#4c669f', '#3b5998', '#192f6a']}
-          style={styles.linearTop}>
-<Row>
-<Col>
-      <Text><Icon style={styles.Icon} type="FontAwesome" name="money" /></Text>
-</Col>
-<Col style={styles.Right}>
-      <Text><Icon style={styles.Icon}  type="FontAwesome" name="user" /> 
-      <Icon style={styles.Icon}  type="FontAwesome" name="power-off" /></Text>
-</Col>
-</Row>
+        <LinearGradient
+            colors={['#4c669f', '#3b5998', '#192f6a']}
+            style={styles.linearTop}>
 
-               <Avatar
-    source={require('../../assets/images/robot-dev.png')}
-    size='large'
-    shape='rounded'
-  /> 
+            <Row>
+                <Col>
+                       <Avatar
+                            source={require('../../assets/images/robot-dev.png')}
+                            size='large'
+                            shape='rounded'
+                        /> 
+                        <Text style={styles.BigText}>Name</Text>
+                        <Text style={styles.SmallText}>Account Type</Text>
+                </Col>
 
-    <Text style={styles.BigText}>Name</Text>
-        <Text style={styles.SmallText}>Account Type</Text>
+                <Col>
+                        <Text style={styles.BigText01}>55 Transactions Today</Text>
+                        <Row>
+                            <Col>
+                                <Badge success>
+                                    <Text style={styles.SmallText}>44</Text>
+                                </Badge>
+                            </Col>
+                            <Col>
+                                <Badge danger>
+                                    <Text style={styles.SmallText}>44</Text>
+                                </Badge>
+                            </Col>
+                        </Row>
+                </Col>
+            </Row>
 
+            <Row>
+                <Col>
+                    <Text style={styles.BigText}>9,000,000</Text>
+                    <Text style={styles.SmallText}>Postpaid</Text>
+                </Col>
 
-        <Row>
-            <Col>
-                <Text style={styles.BigText}>9,000,000</Text>
-                <Text style={styles.SmallText}>Postpaid</Text>
-            </Col>
-
-            <Col>
-                <Text style={styles.BigText}>9,000,000</Text>
-                <Text style={styles.SmallText}>Prepaid</Text>
-            </Col>
-        </Row>
-         </LinearGradient>
+                <Col>
+                    <Text style={styles.BigText}>9,000,000</Text>
+                    <Text style={styles.SmallText}>Prepaid</Text>
+                </Col>
+            </Row>
+        </LinearGradient>
 
 
 
@@ -116,8 +128,8 @@ export default class ViewPayment extends Component {
     titleStyle={styles.listItemTitle}
     descriptionStyle={styles.listItemDescription}
     accessory={Accessory}
-    title='5000'
-    description='Description of payment'
+    title='Pentagon Inst.'
+    description='Date of payment and amount'
   />
                 
               </Body>
@@ -132,6 +144,10 @@ export default class ViewPayment extends Component {
 }
 
 const styles = StyleSheet.create({
+            btnSM: {
+                fontSize: 5,
+                padding: 0
+            },
             Icon: {
                 color: '#fff',
                 fontSize: 14,
@@ -148,6 +164,10 @@ const styles = StyleSheet.create({
                 color: "#fff",
                 fontSize: 15
             },
+             BigText01: {
+                 color: "#fff",
+                 fontSize: 12
+             },
             SmallText: {
                 color: "#fff",
                 fontSize: 8

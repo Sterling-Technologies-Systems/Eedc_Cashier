@@ -162,7 +162,8 @@ const styles = StyleSheet.create({
   Icon:{
     color: '#fff',
     fontSize: 14,
-    marginRight: 10
+    marginRight: 10,
+    marginLeft: 10
   },
   Right: {
  alignItems: 'flex-end'

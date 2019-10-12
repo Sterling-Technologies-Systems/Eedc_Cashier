@@ -29,7 +29,7 @@ const Home = (props) => {
 
 const HomeStack = createStackNavigator(
   {
-    Home: Home,
+   
     Dashboard:HomeScreen,
     
   },
