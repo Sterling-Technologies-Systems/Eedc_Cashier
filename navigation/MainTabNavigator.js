@@ -8,7 +8,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ForgotScreen from '../screens/ForgotScreen'
 import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import NotificationScreen from '../screens/NotificationScreen';
 
 import ViewPayment from '../screens/cashierDashboard/ViewPayment'
 import ScanBill from '../screens/cashierDashboard/ScanBill'
@@ -114,27 +114,25 @@ AuthStack.path = '';
 
 
 
-
-
-const SettingsStack = createStackNavigator(
+const NotificationsStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Notification: NotificationScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+NotificationsStack.navigationOptions = {
+  tabBarLabel: 'Notifications',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
   ),
 };
 
-SettingsStack.path = '';
+NotificationsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
-  SettingsStack,
+  NotificationsStack,
   ProcessStack
 });
 

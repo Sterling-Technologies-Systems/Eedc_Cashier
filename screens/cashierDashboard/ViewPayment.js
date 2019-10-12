@@ -41,13 +41,7 @@ export default class ViewPayment extends Component {
                 />
             );
 
-             const Accessory = (style) => (
-                    <>
-                        <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
-                        <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
-                    </>
-                );
-
+          
     return (
       <Container>
            <Header>
@@ -123,14 +117,23 @@ export default class ViewPayment extends Component {
               <Body>
              
 
-                <ListItem
-    style={styles.listItem}
-    titleStyle={styles.listItemTitle}
-    descriptionStyle={styles.listItemDescription}
-    accessory={Accessory}
-    title='Pentagon Inst.'
-    description='Date of payment and amount'
-  />
+
+   <List>
+            <ListItem avatar>
+              <Left>
+                <Thumbnail source={{ uri: 'Image URL' }} />
+              </Left>
+              <Body>
+                <Text>Kumar Pratik</Text>
+                <Text note>Doing what you like will always keep you happy .</Text>
+              </Body>
+              <Right>
+                <Text note>3:43 pm</Text>
+                <Text> <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
+                        <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button></Text>
+              </Right>
+            </ListItem>
+          </List>
                 
               </Body>
             </CardItem>
