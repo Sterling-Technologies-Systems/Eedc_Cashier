@@ -84,11 +84,7 @@ onItemPress = (index) => {
         </LinearGradient>
 
       <Card>
-            <CardItem header bordered>
-              <Text>View Payments</Text>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
+            
              
         <List>
             <ListItem itemDivider>
@@ -108,8 +104,7 @@ onItemPress = (index) => {
             </ListItem>
           </List>
 
-          </Body>
-          </CardItem>
+        
           </Card>
 
 

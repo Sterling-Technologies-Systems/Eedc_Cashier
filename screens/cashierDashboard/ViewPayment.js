@@ -1,9 +1,9 @@
 
 import React, { Component } from "react";
-import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon, Badge, Right , Left, View, Thumbnail  } from "native-base";
+import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon,  List, ListItem, Badge, Right , Left, View, Thumbnail  } from "native-base";
 import { Font, AppLoading } from "expo";
 import { Col, Row, Grid} from 'react-native-easy-grid';
-import { List, ListItem, Input, Layout, Button } from 'react-native-ui-kitten';
+import { Input, Layout, Button } from 'react-native-ui-kitten';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Avatar } from 'react-native-ui-kitten';
 
@@ -110,18 +110,16 @@ export default class ViewPayment extends Component {
         <Content padder>
 
           <Card>
-            <CardItem header bordered>
-              <Text>View Payments</Text>
-            </CardItem>
-            <CardItem bordered>
-              <Body>
+         
              
 
 
-   <List>
+        <List>
             <ListItem avatar>
               <Left>
-                <Thumbnail source={{ uri: 'Image URL' }} />
+                <Badge success>
+                     <Icon type="FontAwesome" name="check" />
+                </Badge>
               </Left>
               <Body>
                 <Text>Kumar Pratik</Text>
@@ -129,14 +127,33 @@ export default class ViewPayment extends Component {
               </Body>
               <Right>
                 <Text note>3:43 pm</Text>
-                <Text> <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
-                        <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button></Text>
+                <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
+                <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
               </Right>
             </ListItem>
-          </List>
-                
+        </List>
+
+
+          <List>
+            <ListItem avatar>
+              <Left>
+                <Badge danger>
+                    <Icon type="FontAwesome" name="cancel" />
+                </Badge>
+              </Left>
+              <Body>
+                <Text>Kumar Pratik</Text>
+                <Text note>Doing what you like will always keep you happy .</Text>
               </Body>
-            </CardItem>
+              <Right>
+                <Text note>3:43 pm</Text>
+                <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
+                <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
+              </Right>
+            </ListItem>
+        </List>
+                
+            
          
           </Card>
 
