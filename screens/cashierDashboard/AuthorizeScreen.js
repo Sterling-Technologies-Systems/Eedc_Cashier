@@ -56,7 +56,7 @@ onItemPress = (index) => {
                 <Col>
                         <Text style={styles.BigText01}>55 Transactions Today</Text>
                         <Row>
-                            <Col>
+                            <Col style={{width: 30}}>
                                 <Badge success>
                                     <Text style={styles.SmallText}>44</Text>
                                 </Badge>

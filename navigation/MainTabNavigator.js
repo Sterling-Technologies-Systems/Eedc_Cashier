@@ -118,7 +118,12 @@ const NotificationsStack = createStackNavigator(
   {
     Notification: NotificationScreen,
   },
-  config
+  {
+    headerMode: 'none',
+      navigationOptions: {
+        headerVisible: false,
+      }
+  }
 );
 
 NotificationsStack.navigationOptions = {
