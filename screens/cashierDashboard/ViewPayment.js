@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Container, Header, Content, Card, CardItem, Text, Body, Title, Icon,  List, ListItem, Badge, Right , Left, View, Thumbnail  } from "native-base";
 import { Font, AppLoading } from "expo";
 import { Col, Row, Grid} from 'react-native-easy-grid';
-import { Input, Layout, Button } from 'react-native-ui-kitten';
+import { Input, Layout, Button, ButtonGroup } from 'react-native-ui-kitten';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Avatar } from 'react-native-ui-kitten';
 
@@ -44,27 +44,12 @@ export default class ViewPayment extends Component {
           
     return (
       <Container>
-           <Header>
-          <Left>
-            <Button hasText transparent>
-              <Text>Back</Text>
-            </Button>
-          </Left>
-          <Body>
-            <Title>View Payments</Title>
-          </Body>
-          <Right>
-            <Button hasText transparent>
-              <Text>Cancel</Text>
-            </Button>
-          </Right>
-        </Header>
 
         <LinearGradient
             colors={['#4c669f', '#3b5998', '#192f6a']}
             style={styles.linearTop}>
 
-            <Row>
+            <Row style={{paddingTop: 25}}>
                 <Col>
                        <Avatar
                             source={require('../../assets/images/robot-dev.png')}
@@ -92,7 +77,7 @@ export default class ViewPayment extends Component {
                 </Col>
             </Row>
 
-            <Row>
+            <Row style={{marginTop: 80}}>
                 <Col>
                     <Text style={styles.BigText}>9,000,000</Text>
                     <Text style={styles.SmallText}>Postpaid</Text>
@@ -108,47 +93,49 @@ export default class ViewPayment extends Component {
 
 
         <Content padder>
-
           <Card>
-         
-             
-
 
         <List>
             <ListItem avatar>
               <Left>
-                <Badge success>
-                     <Icon type="FontAwesome" name="check" />
+                <Badge success style={{paddingTop: 5}}>
+                     <Icon style={styles.BigText} type="FontAwesome" name="check" />
                 </Badge>
               </Left>
               <Body>
                 <Text>Kumar Pratik</Text>
                 <Text note>Doing what you like will always keep you happy .</Text>
+
+                 <ButtonGroup>
+                    <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
+                    <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
+                </ButtonGroup>
               </Body>
               <Right>
                 <Text note>3:43 pm</Text>
-                <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
-                <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
               </Right>
             </ListItem>
         </List>
 
 
-          <List>
+         <List>
             <ListItem avatar>
               <Left>
                 <Badge danger>
-                    <Icon type="FontAwesome" name="cancel" />
+                     <Text style={styles.BigText}>&times;</Text>
                 </Badge>
               </Left>
               <Body>
                 <Text>Kumar Pratik</Text>
                 <Text note>Doing what you like will always keep you happy .</Text>
+
+                 <ButtonGroup>
+                    <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
+                    <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
+                </ButtonGroup>
               </Body>
               <Right>
                 <Text note>3:43 pm</Text>
-                <Button size='tiny' status='danger' style={styles.btnSM}>Request Reversal</Button> 
-                <Button size='tiny' status='primary' style={styles.btnSM}>Print</Button>
               </Right>
             </ListItem>
         </List>

@@ -32,12 +32,12 @@ _onPressButton=()=>{
 render(){
     return (
        <Container style={styles.container}>
-        <Header />
+     
         
          <LinearGradient
           colors={['#4c669f', '#3b5998', '#192f6a']}
           style={styles.linearTop}>
-<Row>
+<Row style={{paddingTop: 25}}>
 <Col>
       <Text><Icon style={styles.Icon} type="FontAwesome" name="money" /></Text>
 </Col>
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
   linearTop: {
    
     padding: 15,
-    height: 220,
+    height: 230,
     alignItems: "center",
     borderBottomLeftRadius: 30,
     borderBottomRightRadius: 30,

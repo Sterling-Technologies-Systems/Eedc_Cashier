@@ -42,7 +42,7 @@ onItemPress = (index) => {
             colors={['#4c669f', '#3b5998', '#192f6a']}
             style={styles.linearTop}>
 
-            <Row>
+            <Row  style={{paddingTop: 25}}>
                 <Col>
                        <Avatar
                             source={require('../../assets/images/robot-dev.png')}
@@ -70,7 +70,7 @@ onItemPress = (index) => {
                 </Col>
             </Row>
 
-            <Row>
+            <Row  style={{marginTop: 80}}>
                 <Col>
                     <Text style={styles.BigText}>9,000,000</Text>
                     <Text style={styles.SmallText}>Postpaid</Text>
