@@ -5,10 +5,20 @@ import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import AsyncStorage from "@react-native-community/async-storage";
+
 import AppNavigator from './navigation/AppNavigator';
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+
+  storeData = async () => {
+    try {
+      await AsyncStorage.setItem("@storage_Key", "stored value");
+    } catch (e) {
+      // saving error
+    }
+  };
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
     return (

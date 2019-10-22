@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Button, Title, Icon, Thumbnail, Text } from 'native-base';
 
 import { Font, AppLoading } from "expo";
+
 class NotificationScreen extends Component {
    state = {
      fontLoaded: false,

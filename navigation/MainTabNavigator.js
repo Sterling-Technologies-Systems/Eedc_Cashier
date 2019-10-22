@@ -43,8 +43,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'md-home'
       }
     />
   ),
@@ -55,7 +55,7 @@ HomeStack.path = '';
 
 export const ProcessStack = createStackNavigator(
   {
-    Authorize: AuthorizeScreen,
+     Authorize: AuthorizeScreen,
      Scan: ScanBill,
      SeePayment: ViewPayment,
      Search: SearchScreen
@@ -69,7 +69,7 @@ export const ProcessStack = createStackNavigator(
   config
 );
 ProcessStack.navigationOptions = {
-  tabBarLabel: 'Dashboard',
+  tabBarLabel: 'Payments',
   tabBarIcon: ({
     focused
   }) => ( <
@@ -77,7 +77,7 @@ ProcessStack.navigationOptions = {
       focused
     }
     name = {
-      Platform.OS === 'ios' ? 'ios-link' : 'md-link'
+      Platform.OS === 'ios' ? 'ios-cash' : 'md-cash'
     }
     />
   ),
